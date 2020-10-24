@@ -5,5 +5,5 @@ defmodule ProjectEuler04Test do
   test "largest palindrome" do
     assert ProjectEuler04.palindrome(99) == 9009
   end
-
+-
 end
