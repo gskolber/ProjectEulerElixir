@@ -20,11 +20,36 @@ defmodule ProjectEuler06 do
 
   ## Examples
 
-      iex> ProjectEuler06.hello()
-      :world
+      iex> ProjectEuler06.sum_square_difference(10)
+      2640.0
 
   """
-  def hello do
-    :world
+  @spec sum_square_difference(integer) :: integer
+  def sum_square_difference(range) do
+    range
+    |> sum_of_squares(0)
+    |> difference_between_squares(square_of_sum(range))
+
+  end
+
+  def sum_of_squares(number, total) when number>0 do
+
+    total = total + :math.pow(number,2)
+    sum_of_squares(number-1, total)
+
+  end
+
+  def sum_of_squares(number, total) when number==0 do
+    total
+  end
+
+  def square_of_sum(number) do
+    Enum.sum(1..number)
+    |> :math.pow(2)
+  end
+
+  @spec difference_between_squares(integer, integer) :: integer
+  def difference_between_squares(sum_square, square_sum) do
+    square_sum - sum_square
   end
 end
