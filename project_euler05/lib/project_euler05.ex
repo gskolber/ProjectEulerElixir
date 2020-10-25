@@ -16,7 +16,20 @@ defmodule ProjectEuler05 do
       2520
 
   """
-  def hello do
-    :world
+  def smallest_divisor(range) do
+    range
+    |>is_divisible(1, range)
+  end
+
+  defp is_divisible(range, number, init) when rem(number, range) ==0 do
+    is_divisible(range-1, number, init)
+  end
+
+  defp is_divisible(range, number, init) when rem(number, range) !=0 do
+    is_divisible(init, number+1, init)
+  end
+
+  defp is_divisible(range, number, _init) when range == 0 do
+    number
   end
 end

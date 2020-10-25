@@ -4,5 +4,6 @@ defmodule ProjectEuler05Test do
 
   test "smallest divisor" do
     assert ProjectEuler05.smallest_divisor(10) == 2520
+    assert ProjectEuler05.smallest_divisor(20) == 232792560
   end
 end
