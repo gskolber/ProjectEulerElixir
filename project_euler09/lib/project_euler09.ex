@@ -51,5 +51,3 @@ defmodule ProjectEuler09 do
   end
 
 end
-
-created function and tests for exercise 09
