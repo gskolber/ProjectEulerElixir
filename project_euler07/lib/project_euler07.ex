@@ -13,11 +13,35 @@ defmodule ProjectEuler07 do
 
   ## Examples
 
-      iex> ProjectEuler07.hello()
-      :world
+      iex> ProjectEuler07.prime_number_at_position(2,4)
+      7
 
   """
-  def hello do
-    :world
+  def prime_number_at_position(number,position) when position == 0 do
+    number - 1
   end
+
+  def prime_number_at_position(number, position) when position>=0 do
+
+    case is_prime?(number, 2) do
+      true ->
+        prime_number_at_position(number+1, position-1)
+      false ->
+        prime_number_at_position(number+1, position)
+
+    end
+
+  end
+
+  def is_prime?(number, cont) when number > cont do
+    case rem(number, cont) == 0 do
+      true -> false
+      false -> is_prime?(number, cont+1)
+    end
+  end
+
+  def is_prime?(number, cont) when number == cont do
+    true
+  end
+
 end
